@@ -21,11 +21,14 @@ class FavoriteView: UIViewController{
         view.backgroundColor = .cyan
         return view
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         controller = FavoriteController(view: self)
         view.backgroundColor = .cyan
         setupSubviews()
+        controller?.checkFavorites()
+        reloadCollection()
     }
     
     func setupSubviews(){
@@ -56,7 +59,6 @@ extension FavoriteView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
         cell.fill(product: controller!.getFavorite(index: indexPath.row), indexPath: indexPath)
-        cell.makeHeartInvisible()
         return cell
     }
     
@@ -68,4 +70,3 @@ extension FavoriteView: UICollectionViewDelegateFlowLayout{
         return CGSize(width: (view.frame.width / 2) - 20, height: 280)
     }
 }
-

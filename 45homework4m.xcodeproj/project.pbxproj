@@ -12,7 +12,6 @@
 		9AFCBBC929F6EEE3001C821C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AFCBBC829F6EEE3001C821C /* Assets.xcassets */; };
 		9AFCBBCC29F6EEE3001C821C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AFCBBCA29F6EEE3001C821C /* LaunchScreen.storyboard */; };
 		9AFCBBD629F6EFE1001C821C /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCBBD529F6EFE1001C821C /* FavoriteModel.swift */; };
-		9AFCBBD829F6EFEE001C821C /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCBBD729F6EFEE001C821C /* FavoriteView.swift */; };
 		9AFCBBDA29F6F04D001C821C /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCBBD929F6F04D001C821C /* FavoriteController.swift */; };
 		9AFCBBDC29F6F059001C821C /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCBBDB29F6F059001C821C /* MainModel.swift */; };
 		9AFCBBDE29F6F063001C821C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFCBBDD29F6F063001C821C /* MainView.swift */; };
@@ -253,7 +252,6 @@
 				9AFCBBE429F6F0A6001C821C /* NetworkManager.swift in Sources */,
 				9AFCBBDE29F6F063001C821C /* MainView.swift in Sources */,
 				9AFCBBEA29F6F1F0001C821C /* ProductCell.swift in Sources */,
-				9AFCBBD829F6EFEE001C821C /* FavoriteView.swift in Sources */,
 				9AFCBBDC29F6F059001C821C /* MainModel.swift in Sources */,
 				9AFCBBD629F6EFE1001C821C /* FavoriteModel.swift in Sources */,
 				9AFCBBC029F6EEE2001C821C /* AppDelegate.swift in Sources */,

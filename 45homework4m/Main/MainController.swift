@@ -29,6 +29,10 @@ class MainController{
         return (model?.getFilteredCount())!
     }
     
+    func getCount() -> Int{
+        return (model?.getCount())!
+    }
+    
     func getFiltered() -> [Product]{
         return (model?.getFiltered())!
     }
@@ -45,8 +49,8 @@ class MainController{
         model?.textChange(text)
     }
     
-    func getProducts() -> [Product]{
-        let products = model?.getProducts()
+    func getProduct(index: Int) -> Product{
+        let products = model?.getProduct(index: index)
         return products!
     }
 }

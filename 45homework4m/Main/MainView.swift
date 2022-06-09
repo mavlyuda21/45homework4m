@@ -29,7 +29,6 @@ class MainView: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         controller = MainController(view: self)
         view.backgroundColor = .cyan
         controller?.downloadProducts()
@@ -48,6 +47,12 @@ class MainView: UIViewController{
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        searchBar.text = ""
+        searching = false
+        reloadCollection()
+    }
+    
     func reloadCollection(){
         DispatchQueue.main.async {
             self.productsCollectionView.reloadData()
@@ -58,7 +63,7 @@ class MainView: UIViewController{
 extension MainView: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searching == false{
-            return (controller?.getProducts().count)!
+            return (controller?.getCount())!
         }else{
             return (controller?.getFilteredCount())!
         }
@@ -68,7 +73,7 @@ extension MainView: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseId, for: indexPath) as! ProductCell
         cell.makeDelegate(view: self)
         if searching == false{
-            cell.fill(product: (controller?.getProducts()[indexPath.row])!, indexPath: indexPath)
+            cell.fill(product: (controller?.getProduct(index: indexPath.row))!, indexPath: indexPath)
         }else{
             cell.fill(product: (controller?.getFiltered()[indexPath.row])!, indexPath: indexPath)
         }

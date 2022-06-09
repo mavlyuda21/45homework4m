@@ -9,10 +9,6 @@ import Foundation
 
 class MainModel{
     private weak var controller: MainController!
-    
-    private var networkManager = NetworkManager()
-
-    private var products = [Product]()
 
     private var filtered = [Product]()
     
@@ -21,14 +17,16 @@ class MainModel{
     }
     
     func downloadProducts(){
-        networkManager.downloadProducts { result in
-            self.products = result
-            self.controller.collectionViewReloaded()
-        }
+        DataManager.shared.downloadProducts(delegate: self)
+        self.controller.collectionViewReloaded()
+    }
+    
+    func getCount() -> Int{
+        return DataManager.shared.getCount()
     }
     
     func addFavorites(index: IndexPath){
-        DataManager.shared.addFavorite(products[index.row])
+        DataManager.shared.addFavorite(index: index.row)
     }
     
     func getFilteredCount() -> Int{
@@ -40,11 +38,17 @@ class MainModel{
     }
     
     func textChange(_ text: String){
-        filtered = products.filter({ $0.title.lowercased().contains(text.lowercased()) })
+        filtered = DataManager.shared.getFiltered(text: text)
         self.controller.collectionViewReloaded()
     }
     
-    func getProducts() -> [Product]{
-        return products
+    func getProduct(index: Int) -> Product{
+        return DataManager.shared.getProduct(index: index)
+    }
+}
+
+extension MainModel: ProductsDownloaded{
+    func productsDownloaded() {
+        self.controller.collectionViewReloaded()
     }
 }

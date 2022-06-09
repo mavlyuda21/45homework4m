@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Foundation
+
 class FavoriteModel{
     private weak var controller: FavoriteController!
     
@@ -17,6 +19,10 @@ class FavoriteModel{
     
     func getFavorite(index: Int) -> Product{
         return DataManager.shared.getFavorite(index: index)
+    }
+    
+    func checkFavorites(){
+        DataManager.shared.checkFavorites()
     }
     
     func getCount() -> Int{

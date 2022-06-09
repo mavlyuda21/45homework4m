@@ -5,8 +5,6 @@
 //  Created by mavluda on 24/4/23.
 //
 
-import Foundation
-
 class FavoriteController{
     private weak var view: FavoriteView!
     
@@ -19,6 +17,10 @@ class FavoriteController{
     
     func collectionViewReloaded(){
         view.reloadCollection()
+    }
+    
+    func checkFavorites(){
+        model?.checkFavorites()
     }
     
     func getFavorite(index: Int) -> Product{
